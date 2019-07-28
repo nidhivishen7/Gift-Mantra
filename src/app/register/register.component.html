@@ -1,0 +1,82 @@
+<div class="container">
+
+
+
+  <div class="card" style="margin:50px;">
+      <div class="card-header">
+      <b> Registration Form</b>
+      </div>
+      <div class="card-body">
+          <form style="margin:20px;" ngForm #f="ngForm">
+              <div class="form-row">
+                  <div class="form-group col-md-6">
+                      <label for="inputText4">First Name</label>
+                      <input type="text"  class="form-control" id="firstname" placeholder="First Name" required ngModel name="First" #firstM=ngModel>
+                    <div class="alert alert-danger" *ngIf=" firstM.touched && !firstM.valid">Name is required</div>
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label for="inputText4">Last Name</label>
+                      <input type="text" class="form-control" id="inputPassword4" placeholder="Last Name" required ngModel name="last" #lastM=ngModel>
+                      <div class="alert alert-danger" *ngIf=" lastM.touched && !lastM.valid">Last Name is required</div>
+                    </div>
+                <div class="form-group col-md-6">
+                  <label for="inputEmail4">Email</label>
+                  <input type="email" class="form-control" id="inputEmail4" placeholder="Email" required ngModel name="email" #emailM=ngModel>
+                  <div class="alert alert-danger" *ngIf=" emailM.touched && !emailM.valid">E-mail is required</div>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="inputPassword4">Password</label>
+                  <input type="password" class="form-control" id="inputPassword4" placeholder="Password" required minlength="5" maxlength="10"  ngModel name="password" #passM=ngModel>
+                  <div class="alert alert-danger" *ngIf=" passM.touched && !passM.valid">
+                  <div *ngIf="passM.errors.required"> Password  is  Required</div>
+                  <div *ngIf="passM.errors.minlength"> Minimun length is 5</div>
+                  <div *ngIf="passM.errors.maxlength"> Maximum length is 10</div>
+                </div>
+                </div>
+              </div>
+             
+              <div class="form-group">
+                <label for="inputAddress">Address 1</label>
+                <input type="text" class="form-control" id="inputAddress" placeholder="House Number, Floor Number">
+              </div>
+              <div class="form-group">
+                <label for="inputAddress2">Address 2</label>
+                <input type="text" class="form-control" id="inputAddress2" placeholder="Street Name, Area Name">
+               
+            
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="inputCity">City</label>
+                  <input type="text" class="form-control" id="inputCity" required ngModel name="city" #cityM=ngModel>
+                  <div class="alert alert-danger" *ngIf=" cityM.touched && !cityM.valid">City is required</div>
+                </div>
+                <div class="form-group col-md-4">
+                  <label for="inputState">State</label>
+                  <select id="inputState" class="form-control" required ngModel name="state" #stateM=ngModel>
+                    <option selected>Choose...</option>
+                    <option>...</option>
+                  </select>
+                  <div class="alert alert-danger" *ngIf=" stateM.touched && !stateM.valid">Select the state</div>
+                </div>
+                <div class="form-group col-md-2">
+                  <label for="inputZip">Zip</label>
+                  <input type="text" class="form-control" id="inputZip" required ngModel name="zip" #zipM=ngModel>
+                  <div class="alert alert-danger" *ngIf=" zipM.touched && !zipM.valid">Zip Code is required</div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="gridCheck">
+                  <label class="form-check-label" for="gridCheck">
+                    Check me out
+                  </label>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-danger" [disabled]="!f.valid" (click)="registered()">Register</button>
+            </form>
+      
+            <a style="margin-left:30px;color:darkslategrey" routerLink="/login" ><b>Sign In Here</b></a>
+      </div>
+    </div>
+    </div>
